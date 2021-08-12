@@ -1,18 +1,39 @@
-window.player = {
-    cover: document.querySelector('.card-image'),
-    title: document.querySelector('.card-content h5'),
-    artist: document.querySelector('.artist'),
-    audio: document.querySelector('audio'),
+import audios from "./base/data.js";
+import { path } from "./utils.js";
+import elements from "./playerElements.js";
+
+export default {
     nextTrack: document.querySelector('.card-content .nextTrack'),
     backTrack: document.querySelector('.card-content .backTrack'),
     audioData: audios,
     currentAudio: {},
     currentPlaying: 0,
+    isPlaying: false,
     start() {
+        elements.get.call(this);
+        elements.actions.call(this);
+
         this.update();  
         this.audio.onended = () => this.next();
         this.nextTrack.onclick = () => this.next();
         this.backTrack.onclick = () => this.back();
+    },
+    play() {
+        this.isPlaying = true;
+        this.audio.play();
+        this.playPause.innerText = "pause";
+    },
+    pause() {
+        this.isPlaying = false;
+        this.audio.pause();
+        this.playPause.innerText = "play_arrow";
+    },
+    togglePlayPause() {
+        if(this.isPlaying) {
+            this.pause();
+        } else {
+            this.play();
+        }
     },
     next() {
         this.currentPlaying++;
@@ -31,7 +52,7 @@ window.player = {
         this.cover.style.background = `url('${path(this.currentAudio.cover)}') no-repeat center center / cover`;    
         this.title.innerText = this.currentAudio.title;
         this.artist.innerText = this.currentAudio.artist;
-        this.audio.src = path(this.currentAudio.file);
+        elements.createAudioElement.call(this, path(this.currentAudio.file));
     },
     restart() {
         this.currentPlaying = 0;
