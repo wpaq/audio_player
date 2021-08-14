@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./base/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>WP Player</title>
 </head>
 <body>
@@ -13,9 +13,6 @@
         <h4><i class="material-icons">equalizer</i> WP Player</h4>
         <div class="card">
             <div class="card-image">
-                <a href="#" class="btn-floating btn-large halfway-fab">
-                    <i class="material-icons" id="play-pause">play_arrow</i>
-                </a>
             </div>
             <div class="card-content">
                 <h5>Title</h5>
@@ -36,12 +33,17 @@
                         <input type="range" id="vol-control" min="0" max="100" step="1">
                     </div>
                 </div>
-                <button class="backTrack"><i class="material-icons">keyboard_arrow_left</i></button>
-                <button class="nextTrack"><i class="material-icons">keyboard_arrow_right</i></button>                
+                <div class="controls">
+                    <button class="backTrack "><i class="material-icons">keyboard_arrow_left</i></button>
+                    <a href="#" class="btn-floating btn-large">
+                        <i class="material-icons" id="play-pause">play_arrow</i>
+                    </a>                    
+                    <button class="nextTrack"><i class="material-icons">keyboard_arrow_right</i></button>
+                </div>                                
             </div>
         </div>
     </div>
     
-    <script src="app.js" type="module"></script>
+    <script src="./js/app.js" type="module"></script>
 </body>
 </html>

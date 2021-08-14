@@ -2,7 +2,7 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
 
 :root {
-    --primary: #7159c1;
+    --primary: #003366;
 }
 
 body {
@@ -43,6 +43,26 @@ h4 {
     height: 200px;
 }
 
+.controls {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls button {
+    background-color: white;
+    border: none;
+}
+
+.controls button i:hover {
+    font-size: 7vh;
+}
+
+.controls button i {
+    font-size: 4vh;
+}
+
 audio {
     width: 100%;
     margin-top: 30px;
@@ -54,6 +74,7 @@ audio {
 
 #vol {
     color: var(--primary);
+    transform: translateY(2px);
 }
 
 input[type="range"]::-webkit-slider-thumb {
